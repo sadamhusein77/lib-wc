@@ -1,12 +1,14 @@
 {
-  "name": "wec-lib-wc",
-  "private": true,
-  "version": "0.0.0",
+  "name": "@wec-lib-wc/react-webcomponents",
+  "private": false,
+  "version": "2.0.0",
   "type": "module",
   "main": "dist/react-web-components.es.js",
+  "module": "dist/react-web-components.es.js",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build:css": "tailwindcss -i ./src/index.css -o ./src/generated-styles.css --minify",
+    "build": "npm run build:css && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",

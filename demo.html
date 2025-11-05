@@ -2,10 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>React Web Component Demo</title>
-    <script type="module" src="./dist/react-web-components.es.js"></script>
+    <title>React Web Components Demo</title>
   </head>
   <body>
-    <my-react-button label="Click Me!"></my-react-button>
+    <script type="module" src="./dist/react-web-components.es.js"></script>
+
+    <h2>My React Web Components</h2>
+    <my-button label="Click me!"></my-button>
+    <my-card title="Hello!">
+      <p>This is rendered inside the card component.</p>
+    </my-card>
   </body>
 </html>

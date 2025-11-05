@@ -17,22 +17,21 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src')
     }
   },
+  define: {
+    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'production'),
+  },
   build: {
     lib: {
-      entry: path.resolve(__dirname, 'src/web-components.tsx'),
+      entry: path.resolve(__dirname, 'src/register-web-components.tsx'),
       name: 'ReactWebComponents',
-      fileName: format => `react-web-components.${format}.js`,
-      formats: ['es']
+      fileName: (format) => `react-web-components.${format}.js`,
+      formats: ['es'],
     },
     rollupOptions: {
-      external: ['react', 'react-dom'],
       output: {
-        globals: {
-          react: 'React',
-          'react-dom': 'ReactDOM'
-        }
-      }
-    }
+        inlineDynamicImports: true,
+      },
+    },
   },
   test: {
     projects: [{
