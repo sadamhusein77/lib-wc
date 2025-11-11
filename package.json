@@ -1,14 +1,16 @@
 {
-  "name": "@wec-lib-wc/react-webcomponents",
+  "name": "wec-react-webcomponents",
   "private": false,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "main": "dist/react-web-components.es.js",
   "module": "dist/react-web-components.es.js",
+  "types": "dist/types/register-web-components.d.ts",
   "scripts": {
     "dev": "vite",
     "build:css": "tailwindcss -i ./src/index.css -o ./src/generated-styles.css --minify",
-    "build": "npm run build:css && vite build",
+    "build": "npm run build:css && npm run build:types && vite build",
+    "build:types": "tsc -p tsconfig.build.json",
     "lint": "eslint .",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
@@ -18,7 +20,8 @@
   "dependencies": {
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "react-to-webcomponent": "^2.0.1"
+    "react-to-webcomponent": "^2.0.1",
+    "wec-react-webcomponents": "^1.0.1"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^4.1.2",
